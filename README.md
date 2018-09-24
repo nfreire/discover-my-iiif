@@ -1,2 +1,9 @@
-# discover-my-iiif
-A tool for making IIIF resources discoverable by Internet search engines and Cultural Heritage Aggregators
+---
+
+
+---
+
+<blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
+
