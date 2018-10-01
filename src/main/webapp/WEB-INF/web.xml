@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <!-- General description of your web application -->
+
+    <display-name>PuMI - Discover My IIIF</display-name>
+    <description>
+	   A tool for Cultural Heritage IIIF services, that add discoverability of the digitized CH objects in Internet search engines and Cultural Heritage aggregators
+    </description>
+    <context-param>
+        <description>Location of TODO</description>
+        <param-name>discover-my-iiif.TODO.folder</param-name>
+        <param-value>${discover-my-iiif.TODO.}</param-value>
+    </context-param>
+
+	<servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>
+          org.apache.catalina.servlets.DefaultServlet
+        </servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+      <servlet-name>PumiHandler</servlet-name>
+      <servlet-class>inescid.dimi.PumiServlet</servlet-class>
+      <!-- Load this servlet at server startup time -->
+      <load-on-startup>5</load-on-startup>
+    </servlet>
+
+   
+   <servlet-mapping>
+       <servlet-name>default</servlet-name>
+       <url-pattern>/static/*</url-pattern>
+   </servlet-mapping>
+      
+    <servlet-mapping>
+      <servlet-name>PumiHandler</servlet-name>
+      <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+      <session-timeout>30</session-timeout>
+    </session-config>
+
+</web-app>
